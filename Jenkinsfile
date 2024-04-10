@@ -1,11 +1,23 @@
-/* groovylint-disable CompileStatic */
+// /* groovylint-disable CompileStatic */
+// pipeline {
+//     agent { docker { image 'cameronmcnz/ant-jdk8-git:latest' } }
+//     stages {
+//         stage('GitHub Jenkins Ant Docker Build') {
+//             steps {
+//                 git 'https://github.com/AhmedAlqurafi/react-essentials-2.git'
+//                 sh 'ant clean compile test package war'
+//             }
+//         }
+//     }
+// }
+
 pipeline {
-    agent { docker { image 'cameronmcnz/ant-jdk8-git:latest' } }
+    agent any
+
     stages {
-        stage('GitHub Jenkins Ant Docker Build') {
+        stage('Hello') {
             steps {
-                git 'https://github.com/AhmedAlqurafi/react-essentials-2.git'
-                sh 'ant clean compile test package war'
+                echo 'It is working!!!!!!!'
             }
         }
     }
