@@ -1,10 +1,11 @@
+/* groovylint-disable CompileStatic */
 pipeline {
-    agent any
-
+    agent { docker { image 'cameronmcnz/ant-jdk8-git:latest' } }
     stages {
-        stage('Hello') {
+        stage('GitHub Jenkins Ant Docker Build') {
             steps {
-                echo 'From JenkinsFile'
+                git 'https://github.com/AhmedAlqurafi/react-essentials-2.git'
+                sh 'ant clean compile test package war'
             }
         }
     }
